@@ -1,4 +1,5 @@
 #include<iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 int *bubbleSort(int len,int num[]){
@@ -7,9 +8,7 @@ int *bubbleSort(int len,int num[]){
         j=0;
         while(j<len-1){
             if (num[j]>num[j+1]){
-                temp=num[j];
-                num[j]=num[j+1];
-                num[j+1]=num[j];
+                swap(num[j],num[j+1]);
             }
             j++;
         }
@@ -27,8 +26,8 @@ int main(int argc, char const *argv[]){
     while (i<len){
         cout<<"Enter input :";
         cin>>num[i++];
-    }i=0;
-
+    }
+    i=0;
     int *address_num=bubbleSort(len,num);
 
     //Output loop
