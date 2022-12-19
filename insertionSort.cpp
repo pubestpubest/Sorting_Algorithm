@@ -2,15 +2,13 @@
 #include<algorithm>
 using namespace std;
 
-int *bubbleSort(int len,int num[]){
-    int i=0,j,temp;
-    while (i<len){
-        j=0;
-        while(j<len-1){
-            if (num[j]>num[j+1]){
-                swap(num[j],num[j+1]);
-            }
-            j++;
+int *insertionSort(int len,int num[]){
+    int i=1,j,temp;
+    while(i<len){
+        j=i;
+        while (num[j]<num[j-1] && j>0){
+            swap(num[j],num[j-1]);
+            j--;
         }
         i++;
     }
@@ -28,12 +26,12 @@ int main(int argc, char const *argv[]){
         cin>>num[i++];
     }
     i=0;
-    int *address_num=bubbleSort(len,num);
+    int *sorted=insertionSort(len,num);
 
     //Output loop
     cout<<"Output :";
     while (i<len){
-        cout<<address_num[i]<<" ";
+        cout<<sorted[i]<<" ";
         i++;
     }
     return 0;
